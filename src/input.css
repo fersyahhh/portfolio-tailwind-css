@@ -1,49 +1,55 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-    /* Color */
-    --color-primary: #14b8a6;
-    --color-secondary: #475569;
-    --color-dark: #0f172a;
+  /* Color */
+  --color-primary: #14b8a6;
+  --color-secondary: #475569;
+  --color-dark: #0f172a;
 
-    /* BreakPoint */
-    --breakpoint-2xl: 1320px;
+  /* BreakPoint */
+  --breakpoint-2xl: 1320px;
 }
 
 html {
-    @apply scroll-smooth overflow-x-hidden;
+  @apply overflow-x-hidden scroll-smooth;
 }
 
 body {
-    @apply overflow-x-hidden;
-    font-family: "Montserrat", sans-serif;
+  @apply overflow-x-hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container {
-    @apply p-4 m-auto;
+  @apply m-auto p-4;
 }
 
 .navbar-fixed {
-    @apply fixed z-[9999] bg-white/70 backdrop-blur-[5px];
-    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  @apply dark:bg-dark/70 fixed z-[9999] bg-white/70 backdrop-blur-[5px];
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .hamburger-line {
-    @apply w-[30px] h-[2px] bg-dark my-2 block;
+  @apply bg-dark my-2 block h-[2px] w-[30px] dark:bg-white;
 }
 
 .hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
+  @apply rotate-45;
 }
 
 .hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+  @apply scale-0;
 }
 
 .hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
+  @apply -rotate-45;
 }
 
 .transition-hamburger {
-    @apply transition-all duration-300 ease-in-out;
+  @apply transition-all duration-300 ease-in-out;
 }
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3;
+}
+
+@variant dark (html.dark &);
